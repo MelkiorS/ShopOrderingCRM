@@ -7,6 +7,10 @@ const keys = require('./config/keys')
 const devLogs = require('morgan')('dev')
 const app = express()
 
+mongoose.connect(keys.mongoURL)
+    .then(() => console.log('MongoDB connected.'))
+    .catch(error => console.log(error))
+
 app.use(passport.initialize())
 require('./middleware/passport')(passport)
 

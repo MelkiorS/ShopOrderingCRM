@@ -6,14 +6,14 @@ const keys = require('../config/keys')
 const errorHandler = require('../utils/errorHandler')
 
 module.exports.login = async function(req, res) {
-  const candidate = await User.findOne({email: req.body.email})
+  const candidate = await User.findOne({nickname: req.body.nickname})
 
   if (candidate) {
     const isRightPassword = bcrypt.compareSync(req.body.password, candidate.password)
     if (isRightPassword) {
       const oneHour = moment({hour: 1}).second();
       const token = jwt.sign({
-        email: candidate.email,
+        nickname: candidate.nickname,
         userId: candidate._id
       }, keys.jwt, {expiresIn: oneHour})
 
