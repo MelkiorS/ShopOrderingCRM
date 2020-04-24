@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const authRoutes = require('./routes/auth')
 const positionRoutes = require('./routes/position')
+const categoryRoutes = require('./routes/category')
 const mongoURL = require('./config/keys').mongoURL
 const devLogs = require('morgan')('dev')
 const app = express()
@@ -23,6 +24,7 @@ app.use(require('cors')())
 //----------routes---------------
 app.use('/api/auth', authRoutes)
 app.use('/api/position', positionRoutes)
+app.use('/api/category', categoryRoutes)
 
 //--------------------------------
 
