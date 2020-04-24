@@ -5,6 +5,7 @@ const path = require('path')
 const authRoutes = require('./routes/auth')
 const positionRoutes = require('./routes/position')
 const categoryRoutes = require('./routes/category')
+const orderRoutes = require('./routes/order')
 const mongoURL = require('./config/keys').mongoURL
 const devLogs = require('morgan')('dev')
 const app = express()
@@ -25,7 +26,7 @@ app.use(require('cors')())
 app.use('/api/auth', authRoutes)
 app.use('/api/position', positionRoutes)
 app.use('/api/category', categoryRoutes)
-
+app.use('/api/order', orderRoutes)
 //--------------------------------
 
 if (process.env.NODE_ENV === 'production') {
