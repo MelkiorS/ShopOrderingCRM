@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   form: FormGroup
 
-  constructor(private auth: AuthService,
+  constructor(private authService: AuthService,
               private router: Router,
               private route: ActivatedRoute) {
   }
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.form.disable()
 
-    this.auth.login(this.form.value).subscribe(
+    this.authService.login(this.form.value).subscribe(
       () => this.router.navigate(['/overview']),
       error => {
         MaterializecssService.toast(error.error.message)
