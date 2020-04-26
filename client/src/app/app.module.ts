@@ -9,6 +9,7 @@ import {AuthComponent} from "./shared/components/auth/auth.component";
 import {LoginComponent} from "./login/login.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {RegisterComponent} from "./register/register.component";
+import {MainViewComponent} from "./main-view/main-view.component";
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {RegisterComponent} from "./register/register.component";
     AuthComponent,
     LoginComponent,
     RegisterComponent,
+    MainViewComponent,
   ],
   imports: [
     BrowserModule,

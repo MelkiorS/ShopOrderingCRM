@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {AuthComponent} from "./shared/components/auth/auth.component";
 import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
+import {AuthGuard} from "./shared/guards/auth.guard";
+import {MainViewComponent} from "./main-view/main-view.component";
 
 
 const routes: Routes = [
@@ -13,6 +15,13 @@ const routes: Routes = [
       {path: 'register', component: RegisterComponent}
     ]
   },
+  {
+    path: '', component: MainViewComponent, canActivate: [AuthGuard], children: [
+      // TODO implement OverviewComponent
+      // {path: 'overview', component: OverviewComponent},
+
+    ]
+  }
 ];
 
 @NgModule({
