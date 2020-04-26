@@ -1,5 +1,6 @@
 const express = require('express')
 const passport = require('passport')
+const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const path = require('path')
 const authRoutes = require('./routes/auth')
@@ -10,9 +11,10 @@ const mongoURL = require('./config/keys').mongoURL
 const devLogs = require('morgan')('dev')
 const app = express()
 
-mongoose.connect(mongoURL)
+mongoose.connect(mongoURL,
+    { useNewUrlParser: true,  useUnifiedTopology: true, useCreateIndex : true })
     .then(() => console.log('MongoDB connected.'))
-    .catch(error => console.log(error))
+    .catch(error => console.log(`MongoDB connection problem ${error}`))
 
 app.use(passport.initialize())
 require('./middleware/passport')(passport)
