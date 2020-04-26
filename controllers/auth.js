@@ -34,18 +34,18 @@ module.exports.login = async function(req, res) {
 
 
 module.exports.register = async function(req, res) {
-  const candidate = await User.findOne({email: req.body.email.trim})
+  const candidate = await User.findOne({nickname: req.body.nickname.trim})
 
   if (candidate) {
     res.status(409).json({
-    message: 'This email is already taken'
+    message: 'This nickname is already taken'
     })
   } else {
     const salt = bcrypt.genSaltSync(10)
     const password = req.body.password
     const securedPassword = bcrypt.hashSync(password, salt)
     const user = new User({
-      email: req.body.email,
+      nickname: req.body.nickname,
       password: securedPassword
     })
 
