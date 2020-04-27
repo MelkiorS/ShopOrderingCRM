@@ -10,6 +10,7 @@ import {LoginComponent} from "./login/login.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {RegisterComponent} from "./register/register.component";
 import {MainViewComponent} from "./main-view/main-view.component";
+import {OverviewComponent} from "./overview/overview.component";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {MainViewComponent} from "./main-view/main-view.component";
     LoginComponent,
     RegisterComponent,
     MainViewComponent,
+    OverviewComponent,
   ],
   imports: [
     BrowserModule,

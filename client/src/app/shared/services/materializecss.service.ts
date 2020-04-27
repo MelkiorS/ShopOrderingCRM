@@ -2,13 +2,13 @@ import {ElementRef} from '@angular/core'
 
 declare var M
 
-export interface MaterialInstance {
+export interface MaterializeInstance {
   open?(): void
   close?(): void
   destroy?(): void
 }
 // TODO switch to https://material.angular.io/ framework
-export interface MaterialDatepicker extends MaterialInstance {
+export interface MaterialDatepicker extends MaterializeInstance {
   date?: Date
 }
 
@@ -25,11 +25,11 @@ export class MaterializecssService {
     M.updateTextFields()
   }
 
-  static initModal(ref: ElementRef): MaterialInstance {
+  static initModal(ref: ElementRef): MaterializeInstance {
     return M.Modal.init(ref.nativeElement)
   }
 
-  static initTooltip(ref: ElementRef): MaterialInstance {
+  static initTooltip(ref: ElementRef): MaterializeInstance {
     return M.Tooltip.init(ref.nativeElement)
   }
 
@@ -41,7 +41,7 @@ export class MaterializecssService {
     })
   }
 
-  static initTapTarget(ref: ElementRef): MaterialInstance {
+  static initTapTarget(ref: ElementRef): MaterializeInstance {
     return M.TapTarget.init(ref.nativeElement)
   }
 }
